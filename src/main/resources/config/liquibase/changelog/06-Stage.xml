@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+        
+        <changeSet id="create-stage-table" author="tobi">
+            <createTable tableName="stage">
+               
+               <column name="entreprise_id" type="bigint">
+                  <constraints nullable="false"/>
+               </column>
+
+               <column name="stage_id" type="bigint" autoIncrement="true">
+                  <constraints primaryKey="true"/>
+               </column>
+               
+               <column name="etudiant_id" type="bigint">
+                <constraints nullable="false"/>
+               </column>
+
+               <column name="resp_anneeId" type="bigint">
+                <constraints nullable="false"/>
+               </column>
+
+               <column name="referent_id" type="bigint">
+                <constraints nullable="false"/>
+               </column>
+
+              
+
+               <column name="maitredeStaage" type="varchar(255)">
+                <constraints nullable="false"/>
+               </column>
+
+               <column name="CollaborateurSiganataire" type="bigint">
+                <constraints nullable="false"/>
+               </column>
+              
+               <column name="date_siganture_convention" type="datetime">
+                <constraints nullable="false"/>
+                </column>
+
+               <column name="stage_date_debut" type="datetime">
+                <constraints nullable="false"/>
+                </column>
+
+               <column name="stage_date_fin" type="datetime">
+                <constraints nullable="false"/>
+                </column>
+
+            </createTable>
+         
+        
+         </changeSet>
+          
+         <changeSet author="tobi" id="addForeignKeyConstraint-exemple">
+   
+            <addForeignKeyConstraint
+                baseTableName="stage"
+                baseColumnNames="entreprise_id" 
+                constraintName="fk_stage_entreprise"
+                referencedTableName="entreprise" 
+                referencedColumnNames="entreprise_Id"
+                onDelete="NO ACTION"
+                onUpdate="NO ACTION"
+                />
+            <addForeignKeyConstraint
+                baseTableName="stage"
+                baseColumnNames="etudiant_id" 
+                constraintName="fk_stage_etudiant"
+                referencedTableName="etudiant" 
+                referencedColumnNames="EtudiantId"
+                onDelete="NO ACTION"
+                onUpdate="NO ACTION"
+                />
+            <addForeignKeyConstraint
+                baseTableName="stage"
+                baseColumnNames="resp_anneeId" 
+                constraintName="fk_stage_responsableAnnee"
+                referencedTableName="responsableAnnee" 
+                referencedColumnNames="resp_anneeId"
+                onDelete="NO ACTION"
+                onUpdate="NO ACTION"
+                />
+            
+                <addForeignKeyConstraint
+                baseTableName="stage"
+                baseColumnNames="referent_id" 
+                constraintName="fk_stage_referent"
+                referencedTableName="referent" 
+                referencedColumnNames="referent_Id"
+                onDelete="NO ACTION"
+                onUpdate="NO ACTION"
+                />
+                <addForeignKeyConstraint
+                baseTableName="stage"
+                baseColumnNames="CollaborateurSiganataire" 
+                constraintName="fk_stage_collaborateur"
+                referencedTableName="collaborateur" 
+                referencedColumnNames="collaborateur_id"
+                onDelete="NO ACTION"
+                onUpdate="NO ACTION"
+                />
+          
+            
+        </changeSet>
+    
+</databaseChangeLog>

@@ -1,0 +1,13 @@
+application:
+    hello: "hello World"
+
+spring:
+    profiles:
+        active: -dev
+    datasource: 
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost/basetobi
+        username: tobi
+        password: secret
+    liquibase:
+        contexts: dev, faker
