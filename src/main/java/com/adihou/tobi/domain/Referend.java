@@ -1,7 +1,7 @@
 package com.adihou.tobi.domain;
 
 @Entity
-@Table(name="entreprise")
+@Table(name="referent")
 @Getter
 @Setter
 @NoArgsConstructor
